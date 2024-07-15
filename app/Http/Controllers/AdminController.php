@@ -15,8 +15,6 @@ class AdminController extends Controller
 
     public function index()
     {
-        $karyawans = $this->karyawanModel->all();
-
-        return view('admin.dashboard')->with('karyawans', $karyawans);
+        return view('admin.dashboard');
     }
 }

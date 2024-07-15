@@ -12,7 +12,7 @@ class Karyawan extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id_user', 'nama', 'umur', 'jabatan'
+        'id_user', 'nama', 'umur', 'jabatan', 'alamat'
     ];
 
     public function user() {
