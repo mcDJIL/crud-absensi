@@ -2,24 +2,23 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class roleMiddleware
+class Authenticated
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $guard = null): Response
     {
-        $user = Auth::user();
-
-        if (!$user) {
-            return redirect()->route('login');
+        if (Auth::guard($guard)->check())
+        {
+            return redirect()->back();
         }
 
         return $next($request);
