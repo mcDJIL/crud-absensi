@@ -35,4 +35,26 @@ class ExportController extends Controller
 
         return $pdf->download('daftar-hadir-' . $date . '.pdf');
     }
+
+    public function rekapAbsen()
+    {
+        $karyawans = Karyawan::withCount([
+            'absensi as jumlah_hadir' => function ($query) {
+                $query->where('status', 'hadir');
+            },
+            'absensi as jumlah_sakit' => function ($query) {
+                $query->where('status', 'sakit');
+            },
+            'absensi as jumlah_izin' => function ($query) {
+                $query->where('status', 'izin');
+            },
+            'absensi as jumlah_alpa' => function ($query) {
+                $query->where('status', 'alpa');
+            }
+        ])->get();
+
+        $pdf = Pdf::loadView('user.export', compact('karyawans'));
+
+        return $pdf->download('rekap-absensi.pdf');
+    }
 }

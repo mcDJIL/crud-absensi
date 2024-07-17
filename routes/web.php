@@ -47,4 +47,6 @@ Route::middleware([ IsLoginMiddleware::class, 'role:admin' ])->group(function() 
 
 Route::middleware([ 'role:user' ])->group(function() {
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    Route::get('/dashboard/absensi', [UserController::class, 'showAbsensiPage'])->name('user.absensi');
+    Route::get('/absensi/rekap', [ExportController::class, 'rekapAbsen'])->name('absensi.rekap');
 });

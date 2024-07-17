@@ -86,20 +86,106 @@
  
  <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-       <div class="grid grid-cols-3 gap-4 mb-4">
-          <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-             
+       <div class="grid sm:grid-cols-3 grid-cols-1 gap-4 mb-4">
+          <div class="grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
+            <div class="rounded-full sm:px-5 sm:py-5 px-2 py-2 bg-gray-50">
+               <svg class="sm:size-12 size-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3l0-84.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5l0 21.5c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112l32 0c24 0 46.2 7.5 64.4 20.3zM448 416l0-21.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176l32 0c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2l0 26.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3l0-84.7c-10 11.3-16 26.1-16 42.3zm144-42.3l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2l0 42.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-42.8c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112l32 0c61.9 0 112 50.1 112 112z"/></svg>
+            </div>
+
+            <div class="mb-3 mt-2 text-center">
+               <h2 class="font-semibold text-xl">Total Karyawan</h2>
+               <h2 class="font-bold text-5xl mt-2">{{ $totalKaryawan }}</h2>
+            </div>
           </div>
-          <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-             
+          <div class="grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
+            <div class="rounded-full sm:px-5 sm:py-5 px-2 py-2 bg-gray-50">
+               <svg class="sm:size-12 size-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3l0-84.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5l0 21.5c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112l32 0c24 0 46.2 7.5 64.4 20.3zM448 416l0-21.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176l32 0c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2l0 26.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3l0-84.7c-10 11.3-16 26.1-16 42.3zm144-42.3l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2l0 42.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-42.8c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112l32 0c61.9 0 112 50.1 112 112z"/></svg>
+            </div>
+
+            <div class="mb-3 mt-2 text-center">
+               <h2 class="font-semibold text-xl">Rata-rata Umur Karyawan</h2>
+               <h2 class="font-bold text-5xl mt-2">{{ $averageAge }}</h2>
+            </div>
           </div>
-          <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-             
+          <div class="grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
+            <div class="rounded-full sm:px-5 sm:py-5 px-2 py-2 bg-gray-50">
+               <svg class="sm:size-12 size-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3l0-84.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5l0 21.5c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112l32 0c24 0 46.2 7.5 64.4 20.3zM448 416l0-21.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176l32 0c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2l0 26.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3l0-84.7c-10 11.3-16 26.1-16 42.3zm144-42.3l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2l0 42.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-42.8c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112l32 0c61.9 0 112 50.1 112 112z"/></svg>
+            </div>
+
+            <div class="mb-3 mt-2 text-center">
+               <h2 class="font-semibold text-xl">Total Kehadiran Bulan {{ $monthName }}</h2>
+               <h2 class="font-bold text-5xl mt-2">{{ $totalAttendance }}</h2>
+            </div>
           </div>
        </div>
-       <div class="place-content-center h-48 mb-4">
+       <div class="place-content-center h-auto mb-4">
          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
+            
+<div class="max-w-full w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+  <div class="flex justify-between mb-5">
+    <div class="grid gap-4 grid-cols-4">
+      <div>
+        <h5 class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2">Hadir
+        </h5>
+        <p class="text-gray-900 dark:text-white text-2xl leading-none font-bold">100</p>
+      </div>
+      <div>
+        <h5 class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2">Sakit
+        </h5>
+        <p class="text-gray-900 dark:text-white text-2xl leading-none font-bold">50</p>
+      </div>
+      <div>
+        <h5 class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2">Izin
+        </h5>
+        <p class="text-gray-900 dark:text-white text-2xl leading-none font-bold">30</p>
+      </div>
+      <div>
+        <h5 class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2">Alpa
+        </h5>
+        <p class="text-gray-900 dark:text-white text-2xl leading-none font-bold">10</p>
+      </div>
+    </div>
+    <div>
+      <button id="dropdownDefaultButton"
+        data-dropdown-toggle="lastDaysdropdown"
+        data-dropdown-placement="bottom" type="button" class="px-3 py-2 inline-flex items-center text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Last week <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+    </svg></button>
+    <div id="lastDaysdropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last 7 days</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last 30 days</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last 90 days</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div id="line-chart"></div>
+  <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between mt-2.5">
+    <div class="pt-5">      
+      <a href="#" class="px-5 py-2.5 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <svg class="w-3.5 h-3.5 text-white me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+          <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Zm-3 15H4.828a1 1 0 0 1 0-2h6.238a1 1 0 0 1 0 2Zm0-4H4.828a1 1 0 0 1 0-2h6.238a1 1 0 1 1 0 2Z"/>
+          <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+        </svg>
+        Export Absensi
+      </a>
+    </div>
+  </div>
+</div>
 
 
          </div>
@@ -175,5 +261,97 @@
  </div>
  
  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+ <script>
+   
+const options = {
+  chart: {
+    height: "100%",
+    maxWidth: "100%",
+    type: "line",
+    fontFamily: "Inter, sans-serif",
+    dropShadow: {
+      enabled: false,
+    },
+    toolbar: {
+      show: false,
+    },
+  },
+  tooltip: {
+    enabled: true,
+    x: {
+      show: false,
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    width: 6,
+  },
+  grid: {
+    show: true,
+    strokeDashArray: 4,
+    padding: {
+      left: 2,
+      right: 2,
+      top: -26
+    },
+  },
+  series: [
+    {
+      name: "Hadir",
+      data: [10, 40, 30, 40, 60, 30],
+      color: "#1A56DB",
+    },
+    {
+      name: "Sakit",
+      data: [12, 23, 43, 11, 4, 12],
+      color: "#7E3AF2",
+    },
+    {
+      name: "Izin",
+      data: [12, 2, 4, 5, 12, 8],
+      color: "#7E3AF2",
+    },
+    {
+      name: "Alpa",
+      data: [1, 3, 2, 4, 5, 7],
+      color: "#7E3AF2",
+    },
+  ],
+  legend: {
+    show: false
+  },
+  stroke: {
+    curve: 'smooth'
+  },
+  xaxis: {
+    categories: ['01 Feb', '02 Feb', '03 Feb', '04 Feb', '05 Feb', '06 Feb', '07 Feb'],
+    labels: {
+      show: true,
+      style: {
+        fontFamily: "Inter, sans-serif",
+        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+      }
+    },
+    axisBorder: {
+      show: false,
+    },
+    axisTicks: {
+      show: false,
+    },
+  },
+  yaxis: {
+    show: false,
+  },
+}
+
+if (document.getElementById("line-chart") && typeof ApexCharts !== 'undefined') {
+  const chart = new ApexCharts(document.getElementById("line-chart"), options);
+  chart.render();
+}
+
+ </script>
 </body>
 </html>
