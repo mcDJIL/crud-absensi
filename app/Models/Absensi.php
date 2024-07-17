@@ -11,7 +11,7 @@ class Absensi extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id_karyawan', 'tanggal', 'absen'
+        'id_karyawan', 'tanggal', 'jam_masuk', 'jam_keluar', 'status'
     ];
 
     public function karyawan() {
