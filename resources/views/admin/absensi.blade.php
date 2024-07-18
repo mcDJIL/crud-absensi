@@ -97,108 +97,10 @@
              
           </div>
        </div>
-       <div class="place-content-center h-48 mb-4">
-          
+       <div class="place-content-center h-auto mb-4">
 
-           <!-- Main modal -->
-           <div id="create-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-               <div class="relative p-4 w-full max-w-md max-h-full">
-                   <!-- Modal content -->
-                   <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                       <!-- Modal header -->
-                       <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                           <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                               Tambah Karyawan
-                            </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="create-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Tutup</span>
-                </button>
-            </div>
-
-            @if (session('success'))
-            <div class="flex items-center p-4 mx-5 mt-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
-                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-  </svg>
-  <span class="sr-only">Info</span>
-  <div>
-    <span class="font-medium"></span> {{ session('success') }}
-  </div>
-</div>
-@endif
-
-            <!-- Modal body -->
-            <form class="p-4 md:p-5" method="post" action="{{ route('karyawan.store') }}">
-                @csrf
-                <div class="grid gap-4 mb-4 grid-cols-2">
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                        <input type="text" name="nama" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama Karyawan" required="">
-                        @if ($errors->has('nama'))
-                        
-                        <small class="text-red-700 ml-1">
-                            {{ $errors->first('nama') }}
-                        </small>
-                        
-                        @endif
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Umur</label>
-                        <input type="number" name="umur" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="18" required="">
-                        @if ($errors->has('umur'))
-
-                            <small class="text-red-700 ml-1">
-                                {{ $errors->first('umur') }}
-                            </small>
-                            
-                            @endif
-                        </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label for="jabatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jabatan</label>
-                        <select id="jabatan" name="jabatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Pilih Jabatan</option>
-                            <option value="Senior Web Developer">Senior Web Developer</option>
-                            <option value="Product Manager">Product Manager</option>
-                            <option value="QA Assurance">QA Assurance</option>
-                            <option value="Junior Web Developer">Junior Web Developer</option>
-                        </select>
-                        @if ($errors->has('jabatan'))
-                        
-                            <small class="text-red-700 ml-1">
-                                {{ $errors->first('jabatan') }}
-                            </small>
-                            
-                        @endif
-                    </div>
-                    <div class="col-span-2">
-                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                        <textarea id="description" name="alamat" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis alamat dari karyawan tersebut"></textarea>                    
-                        @if ($errors->has('alamat'))
-                        
-                        <small class="text-red-700 ml-1">
-                            {{ $errors->first('alamat') }}
-                        </small>
-
-                        @endif
-                    </div>
-                </div>
-                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                    Tambah Karyawan
-                </button>
-            </form>
-        </div>
-    </div>
-</div> 
-
-<div class="">
-    <button data-modal-target="create-modal" data-modal-toggle="create-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Tambah Karyawan</button>
-    <a href="{{ route('import') }}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Import</a>
-
-        <a href="{{ route('karyawan.export') }}" class="float-end text-gray-900 hover:text-gray-500 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+<div class="mb-4">
+        <a href="{{ route('absensi.export') }}" class=" text-gray-900 hover:text-gray-500 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
                 <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0"/>
             </svg>
@@ -225,14 +127,6 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <div class="flex items-center">
-                        Umur
-                        <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-  </svg></a>
-                    </div>
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    <div class="flex items-center">
                         Jabatan
                         <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
     <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
@@ -241,14 +135,27 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <div class="flex items-center">
-                        Alamat
+                        Jam Masuk
                         <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
     <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
   </svg></a>
                     </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    <span class="sr-only">Edit</span>
+                    <div class="flex items-center">
+                        Jam Keluar
+                        <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
+  </svg></a>
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        Aksi
+                        <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
+  </svg></a>
+                    </div>
                 </th>
             </tr>
         </thead>
@@ -258,6 +165,10 @@
                 
                 @foreach ($karyawans as $karyawan)
 
+                @if (count($karyawan->absensi) > 0)
+                
+                @foreach ($karyawan->absensi as $absensi)
+
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ $karyawan->id }}
@@ -266,129 +177,90 @@
                     {{ $karyawan->nama }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $karyawan->umur }}
+                    {{ $karyawan->jabatan }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $absensi->jam_masuk ?? '-' }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $absensi->jam_keluar ?? '-' }}
+                </td>
+                <td class="px-6 py-4 flex">
+                    @if ($absensi->jam_keluar === null && $absensi->status === 'hadir')
+
+                    <form action="{{ route('clock-out', [ 'id' => $absensi->id ]) }}" method="POST">
+                        @csrf
+
+                        <button type="submit" class="bg-red-600 font-medium text-white rounded-lg px-4 py-2 hover:underline">Keluar</button>
+                    </form>
+                    @else
+                        <div class="">
+                            <span class="bg-green-500 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ $absensi->status }}</span>
+                        </div>
+                    @endif
+                </td>
+            </tr>
+            
+            @endforeach
+            @else
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ $karyawan->id }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ $karyawan->nama }}
                 </td>
                 <td class="px-6 py-4">
                     {{ $karyawan->jabatan }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $karyawan->alamat }}
+                    {{ '-' }}
                 </td>
-                <td class="px-6 py-4 text-right">
-                    <button type="button" data-modal-target="update-modal" data-modal-toggle="update-modal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
-                    <button type="button" data-modal-target="delete-modal" data-modal-toggle="delete-modal" class="ml-8 font-medium text-red-600 dark:text-red-500 hover:underline">Hapus</button>
+                <td class="px-6 py-4">
+                    {{ '-' }}
+                </td>
+                <td class="px-6 py-4 flex">
+                    <form action="{{ route('clock-in', ['id' => $karyawan->id]) }}" method="POST">
+                        @csrf
+
+                        <button type="submit" class="bg-blue-600 font-medium text-white rounded-lg px-4 py-2 hover:underline">Masuk</button>
+                    </form>
+                    <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="ml-2 bg-gray-600 font-medium text-white rounded-lg px-4 py-2 hover:underline">Alasan</button>
+                    
+                    {{-- modal --}}
+                    <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                                <div class="p-4 md:p-5 text-center">
+                                    <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                    </svg>
+                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Pilih status absen</h3>
+                    
+                                    <form action="{{ route('not-present', [ 'id' => $karyawan->id ]) }}" method="POST">
+                                        @csrf
+
+                                        <select name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="">
+                                            <option value="sakit">Sakit</option>
+                                            <option value="izin">Izin</option>
+                                            <option value="alpa">Alpa</option>
+                                        </select>
+
+                                        <button type="submit" class="mt-4 px-4 py-2 rounded-lg font-medium bg-blue-700 text-white dark:bg-blue-300 dark:text-black">Kirim</button>
+                                    </form>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
-
-
-            <div id="update-modal" tabindex="-1" aria-hidden="true" class="fixed inset-0 flex items-center justify-center z-50 hidden">
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-md">
-        <!-- Modal Header -->
-        <div class="flex justify-between items-center p-5 border-b">
-            <h4 class="text-lg font-medium text-gray-900">Update Karyawan</h4>
-            <button type="button" class="close text-gray-400 hover:text-gray-500" data-modal-hide="update-modal">&times;</button>
-        </div>
-        <!-- Modal body -->
-        <div class="p-5">
-            <!-- Alert Sukses -->
-            @if(session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-                    <span class="block sm:inline">{{ session('success') }}</span>
-                </div>
             @endif
-
-            <form action="{{ route('karyawan.update', ['id' => $karyawan->id]) }}" method="POST">
-                @csrf
-                @method('PUT')
-
-                <div class="grid gap-4 mb-4 grid-cols-2">
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                        <input value="{{ old('nama', $karyawan->nama) }}" type="text" name="nama" id="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama Karyawan" required="">
-                        @if ($errors->has('nama'))
-
-                            <small class="text-red-700 ml-1">
-                                {{ $errors->first('nama') }}
-                            </small>
-
-                        @endif
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Umur</label>
-                        <input value="{{ old('umur', $karyawan->umur) }}" type="number" name="umur" id="umur" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="18" required="">
-                        @if ($errors->has('umur'))
-
-                            <small class="text-red-700 ml-1">
-                                {{ $errors->first('umur') }}
-                            </small>
-
-                        @endif
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label for="jabatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jabatan</label>
-                        <select id="jabatan" name="jabatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">{{ old('jabatan', $karyawan->jabatan) }}</option>
-                            <option value="Senior Web Developer">Senior Web Developer</option>
-                            <option value="Product Manager">Product Manager</option>
-                            <option value="QA Assurance">QA Assurance</option>
-                            <option value="Junior Web Developer">Junior Web Developer</option>
-                        </select>
-                        @if ($errors->has('jabatan'))
-
-                            <small class="text-red-700 ml-1">
-                                {{ $errors->first('jabatan') }}
-                            </small>
-
-                        @endif
-                    </div>
-                    <div class="col-span-2">
-                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                        <textarea id="alamat" name="alamat" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis alamat dari karyawan tersebut">{{ old('alamat', $karyawan->alamat) }}</textarea>                    
-                        @if ($errors->has('alamat'))
-
-                            <small class="text-red-700 ml-1">
-                                {{ $errors->first('alamat') }}
-                            </small>
-
-                        @endif
-                    </div>
-                </div>
-                <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-            </form>
-        </div>
-    </div>
-            </div>
-
-            <div id="delete-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-md max-h-full">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="delete-modal">
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                </svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <div class="p-4 md:p-5 text-center">
-                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                </svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah kamu yakin ingin menghapus data karyawan ini?</h3>
-                
-                <form action="{{ route('karyawan.destroy', ['id' => $karyawan->id]) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                        Yakin
-                    </button>
-                    
-                </form>
-
-                <button data-modal-hide="delete-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Kembali</button>
-            </div>
-        </div>
-    </div>
-</div>
-
                 @endforeach
             @else
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -472,6 +344,7 @@
        </div>
     </div>
  </div>
+
 
  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
