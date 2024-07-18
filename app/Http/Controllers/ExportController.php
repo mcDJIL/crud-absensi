@@ -57,4 +57,32 @@ class ExportController extends Controller
 
         return $pdf->download('rekap-absensi.pdf');
     }
+
+    public function exportAbsentOnward()
+    {
+        $date = '2024-07-17';
+
+        $absent = Absensi::where('tanggal', '>=', $date)
+        ->orderBy('tanggal')
+        ->get()
+        ->groupBy('tanggal')
+        ->map(function ($item, $tanggal) {
+            return [
+                'tanggal' => Carbon::parse($tanggal)->format('d-m-Y'),
+                'hadir' => $item->where('status', 'hadir')->count(),
+                'sakit' => $item->where('status', 'sakit')->count(),
+                'izin' => $item->where('status', 'izin')->count(),
+                'alpa' => $item->where('status', 'alpa')->count()
+            ];
+        });
+
+        $total = Absensi::all();
+        $totalHadir = $total->where('status', 'hadir')->count();
+        $totalSakit = $total->where('status', 'sakit')->count();
+        $totalIzin = $total->where('status', 'izin')->count();
+        $totalAlpa = $total->where('status', 'alpa')->count();
+
+        $pdf = Pdf::loadView('pdf.absentOnward', compact('absent', 'totalHadir', 'totalSakit', 'totalIzin', 'totalAlpa'));
+        return $pdf->download('export-absensi.pdf');
+    }
 }

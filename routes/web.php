@@ -45,6 +45,8 @@ Route::middleware([ IsLoginMiddleware::class, 'role:admin' ])->group(function() 
     Route::get('/absensi/export', [ExportController::class, 'exportAbsen'])->name('absensi.export');
 });
 
+Route::get('/dashboard/absent-onward', [ExportController::class, 'exportAbsentOnward'])->name('user.absent-onward');
+
 Route::middleware([ 'role:user' ])->group(function() {
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
     Route::get('/dashboard/absensi', [UserController::class, 'showAbsensiPage'])->name('user.absensi');

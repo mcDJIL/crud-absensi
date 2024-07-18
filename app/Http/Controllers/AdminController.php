@@ -20,6 +20,8 @@ class AdminController extends Controller
         $totalAge = $karyawans->sum('umur');
         $averageAge = $totalAge / $totalKaryawan;
 
+        $formatAverageAge = number_format($averageAge, 2);
+
         $month = Carbon::now('Asia/Jakarta')->toDate()->format('m');
         $totalAttendance = Absensi::whereMonth('tanggal', $month)
         ->where('status', 'hadir')
@@ -28,6 +30,6 @@ class AdminController extends Controller
 
         $monthName = Carbon::now('Asia/Jakarta')->translatedFormat('F');
 
-        return view('admin.dashboard', compact('totalKaryawan', 'averageAge', 'monthName', 'totalAttendance'));
+        return view('admin.dashboard', compact('totalKaryawan', 'formatAverageAge', 'monthName', 'totalAttendance'));
     }
 }

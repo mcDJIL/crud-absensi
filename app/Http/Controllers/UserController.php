@@ -18,7 +18,7 @@ class UserController extends Controller
         $totalKaryawan = $karyawans->count();
 
         $totalAge = $karyawans->sum('umur');
-        $averageAge = $totalAge / $totalKaryawan;
+        $averageAge = number_format($totalAge / $totalKaryawan, 2);
 
         $month = Carbon::now('Asia/Jakarta')->toDate()->format('m');
         $totalAttendance = Absensi::whereMonth('tanggal', $month)
