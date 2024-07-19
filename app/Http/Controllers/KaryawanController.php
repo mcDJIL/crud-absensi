@@ -18,11 +18,14 @@ class KaryawanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $karyawans = $this->karyawanModel->all();
+        $sortField = $request->get('sort_field', 'id');
+        $sortDirection = $request->get('sort_direction', 'asc');
 
-        return view('admin.karyawan')->with('karyawans', $karyawans);
+        $karyawans = Karyawan::orderBy($sortField, $sortDirection)->paginate(5);
+
+        return view('admin.karyawan', compact('karyawans', 'sortField', 'sortDirection'));
     }
 
     /**

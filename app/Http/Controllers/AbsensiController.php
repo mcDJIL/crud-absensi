@@ -21,16 +21,19 @@ class AbsensiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $date = Carbon::now('Asia/Jakarta')->toDateString();
+
+        $sortField = $request->get('sort_field', 'id');
+        $sortDirection = $request->get('sort_direction', 'asc');
 
         // Mengambil semua data karyawan dengan absensi pada tanggal tertentu jika ada
         $karyawans = Karyawan::with(['absensi' => function ($query) use ($date) {
             $query->where('tanggal', $date);
-        }])->get();
+        }])->orderBy($sortField, $sortDirection)->paginate(5);
 
-        return view('admin.absensi')->with('karyawans', $karyawans);
+        return view('admin.absensi', compact('karyawans', 'sortField', 'sortDirection'));
     }
 
     public function clockIn(Request $request, $id)

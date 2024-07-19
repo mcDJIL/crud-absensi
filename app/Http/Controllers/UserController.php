@@ -31,8 +31,11 @@ class UserController extends Controller
         return view('user.dashboard', compact('totalKaryawan', 'averageAge', 'monthName', 'totalAttendance'));
     }
 
-    public function showAbsensiPage()
+    public function showAbsensiPage(Request $request)
     {
+        $sortField = $request->get('sort_field', 'id');
+        $sortDirection = $request->get('sort_direction', 'asc');
+
         $karyawans = Karyawan::withCount([
             'absensi as jumlah_hadir' => function ($query) {
                 $query->where('status', 'hadir');
@@ -46,8 +49,8 @@ class UserController extends Controller
             'absensi as jumlah_alpa' => function ($query) {
                 $query->where('status', 'alpa');
             }
-        ])->get();
+        ])->orderBy($sortField, $sortDirection)->paginate(5);
 
-        return view('user.absensi', compact('karyawans'));
+        return view('user.absensi', compact('karyawans', 'sortField', 'sortDirection'));
     }
 }

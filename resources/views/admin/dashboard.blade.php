@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     @vite('resources/css/app.css')
 </head>
 
@@ -25,7 +26,7 @@
     <aside id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-800">
             <a href="/admin" class="flex items-center ps-2.5 mb-5">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 me-3 sm:h-7" alt="Flowbite Logo" />
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">mcDJIL</span>
@@ -92,10 +93,10 @@
         </div>
     </aside>
 
-    <div class="p-4 sm:ml-64">
+    <div class="p-4 sm:ml-64 dark:bg-gray-900">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="grid sm:grid-cols-3 grid-cols-1 gap-4 mb-4">
-                <div class="grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
+                <div class="pt-4 grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
                     <div class="rounded-full sm:px-5 sm:py-5 px-2 py-2 bg-gray-50">
                         <svg class="sm:size-12 size-8" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -105,11 +106,11 @@
                     </div>
 
                     <div class="mb-3 mt-2 text-center">
-                        <h2 class="font-semibold text-xl">Total Karyawan</h2>
-                        <h2 class="font-bold text-5xl mt-2">{{ $totalKaryawan }}</h2>
+                        <h2 class="font-semibold text-xl dark:text-white">Total Karyawan</h2>
+                        <h2 class="font-bold text-5xl mt-2 dark:text-white">{{ $totalKaryawan }}</h2>
                     </div>
                 </div>
-                <div class="grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
+                <div class="pt-4 grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
                     <div class="rounded-full sm:px-5 sm:py-5 px-2 py-2 bg-gray-50">
                         <svg class="sm:size-12 size-8" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -119,11 +120,11 @@
                     </div>
 
                     <div class="mb-3 mt-2 text-center">
-                        <h2 class="font-semibold text-xl">Rata-rata Umur Karyawan</h2>
-                        <h2 class="font-bold text-5xl mt-2">{{ $formatAverageAge }}</h2>
+                        <h2 class="font-semibold text-xl dark:text-white">Rata-rata Umur Karyawan</h2>
+                        <h2 class="font-bold text-5xl mt-2 dark:text-white">{{ $formatAverageAge }}</h2>
                     </div>
                 </div>
-                <div class="grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
+                <div class="pt-4 grid place-items-center h-auto rounded bg-white dark:bg-gray-800 shadow-md">
                     <div class="rounded-full sm:px-5 sm:py-5 px-2 py-2 bg-gray-50">
                         <svg class="sm:size-12 size-8" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -133,8 +134,8 @@
                     </div>
 
                     <div class="mb-3 mt-2 text-center">
-                        <h2 class="font-semibold text-xl">Total Kehadiran Bulan {{ $monthName }}</h2>
-                        <h2 class="font-bold text-5xl mt-2">{{ $totalAttendance }}</h2>
+                        <h2 class="font-semibold text-xl dark:text-white">Total Kehadiran Bulan {{ $monthName }}</h2>
+                        <h2 class="font-bold text-5xl mt-2 dark:text-white">{{ $totalAttendance }}</h2>
                     </div>
                 </div>
             </div>
@@ -271,13 +272,13 @@
                         </div>
 
                         <div class="text-center mt-10">
-                            <p class="font-bold text-3xl">Karyawan Paling Rajin</p>
+                            <p class="font-bold text-3xl dark:text-white">Karyawan Paling Rajin</p>
                         </div>
 
                         <div class="mt-12 sm:mb-0 mb-12">
 
                             <div class="flex flex-col items-center">
-                                <div class="w-32 h-32 mb-3 rounded-full shadow-lg place-content-center ">
+                                <div class="w-32 h-32 mb-3 rounded-full shadow-lg place-content-center bg-gray-50">
                                     <svg class="sm:size-12 size-8 mx-auto" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                         <path
